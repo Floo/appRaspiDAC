@@ -1,0 +1,36 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>images/hinweis_white.png</file>
+        <file>images/navigation_home.png</file>
+        <file>images/toolbar.png</file>
+        <file>images/info_white.png</file>
+        <file>images/previous_page_white.png</file>
+        <file>images/setup_white.png</file>
+        <file>images/power_white.png</file>
+        <file>images/power_red.png</file>
+        <file>images/logo.png</file>
+        <file>images/play.png</file>
+        <file>images/pause.png</file>
+        <file>images/vol-.png</file>
+        <file>images/vol+.png</file>
+        <file>images/disabled.png</file>
+        <file>images/enabled.png</file>
+        <file>images/mute_on.png</file>
+        <file>images/mute_off.png</file>
+        <file>images/rewind.png</file>
+        <file>images/input.png</file>
+        <file>images/radio.png</file>
+        <file>images/player.png</file>
+        <file>images/next.png</file>
+        <file>images/forward.png</file>
+        <file>content/List.qml</file>
+        <file>content/ListViewDelegate.qml</file>
+        <file>javascript/raspiDAC.js</file>
+        <file>images/logo_transparent.png</file>
+        <file>content/TextTicker.qml</file>
+        <file>content/PM8000.qml</file>
+        <file>content/SystemSetup.qml</file>
+        <file>content/Viera.qml</file>
+    </qresource>
+</RCC>
