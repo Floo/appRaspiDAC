@@ -32,5 +32,6 @@
         <file>content/PM8000.qml</file>
         <file>content/SystemSetup.qml</file>
         <file>content/Viera.qml</file>
+        <file>fonts/Abel-Regular.ttf</file>
     </qresource>
 </RCC>

@@ -7,6 +7,7 @@
 #include <QWaitCondition>
 #include <QThread>
 #include <QtNetwork/QTcpSocket>
+#include <QDataStream>
 
 #define HAS_QT47 ( QT_VERSION >= 0x040700 )
 #define HAS_QT5  ( QT_VERSION >= 0x050000 )

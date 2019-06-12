@@ -24,8 +24,11 @@ ApplicationWindow {
 
     property int mode: 0
 
+    FontLoader { id: fontAbel; source: "fonts/Abel-Regular.ttf" }
+
     Component.onCompleted: {
         console.log("scaling: " + app.scaling);
+        console.log("font: " + fontAbel.name);
     }
 
     RaspiDACNetwork {

@@ -26,6 +26,7 @@ class RaspiDACNetwork : public QObject
     Q_PROPERTY(QStringList radioList READ radioList)
     Q_PROPERTY(QStringList inputList READ inputList)
     Q_PROPERTY(bool initialized READ initialized NOTIFY initializedChanged)
+    Q_PROPERTY(bool pm8000enable READ pm8000enable WRITE setPm8000enable NOTIFY pm8000enableChanged)
 
 public:
     explicit RaspiDACNetwork(QObject *parent = 0);
@@ -37,6 +38,8 @@ public:
     QStringList radioList() { return m_radioList; }
     QStringList inputList() { return m_inputList; }
     bool initialized() { return m_initialized; }
+    bool pm8000enable() { return m_pm8000enable; }
+    void setPm8000enable(bool ctl);
     int guiMode() { return m_GUIMode; }
     int playMode() { return m_playMode; }
     int input() { return m_Input; }
@@ -52,6 +55,7 @@ public:
     Q_INVOKABLE void inputSelected(int index);
     Q_INVOKABLE void guiModeSelected(int guiMode);
     Q_INVOKABLE void initConnect();
+    Q_INVOKABLE void getPm8000enable();
 
 signals:
     void artistChanged();
@@ -60,6 +64,7 @@ signals:
     void albumartChanged();
     void guiModeChanged();
     void playModeChanged();
+    void pm8000enableChanged();
     void inputChanged();
     void initializedChanged();
 
@@ -94,6 +99,7 @@ private:
     int m_Input;
     int m_playMode;
     bool m_initialized;
+    bool m_pm8000enable;
     QTimer *m_volUpTimer;
     QTimer *m_volDownTimer;
     QTimer *m_stillAlive;

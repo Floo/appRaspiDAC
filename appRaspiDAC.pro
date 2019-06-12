@@ -32,5 +32,6 @@ ANDROID_PACKAGE_SOURCE_DIR = $$PWD/android
 DISTFILES += \
     content/PM8000.qml \
     content/Viera.qml \
-    content/SystemSetup.qml
+    content/SystemSetup.qml \
+    fonts/Abel-Regular.ttf
 

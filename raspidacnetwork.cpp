@@ -12,12 +12,11 @@ RaspiDACNetwork::RaspiDACNetwork(QObject *parent) : QObject(parent)
     m_port = 0;
     m_host = "";
 
+    m_pm8000enable = false;
+
     m_udpSocket = new QUdpSocket();
     m_udpSocket->bind(8001);
 
-    //    m_netmanager = new QNetworkAccessManager(this);
-//    connect(m_netmanager, SIGNAL(finished(QNetworkReply*)),
-//            this, SLOT(sl_cover_fetch_done(QNetworkReply*)));
     m_initTimer = new QTimer;
     m_initTimer->setInterval(2000);
     m_initTimer->setSingleShot(true);
@@ -109,6 +108,15 @@ void RaspiDACNetwork::handleReply(const QString &message)
     {
         QString list = message;
         applyStatus(list, false);
+    }
+    else if (message.contains(("[pm8000enable]")))
+    {
+        QString list = message;
+        bool tmp = m_pm8000enable;
+        list.remove("[pm8000enable]");
+        m_pm8000enable = list.contains("true");
+        if (tmp != m_pm8000enable)
+            emit pm8000enableChanged();
     }
     else if (message.contains("[inputList]"))
     {
@@ -291,4 +299,18 @@ void RaspiDACNetwork::checkInit()
 {
     if (!m_initialized)
         emit initializedChanged();
+}
+
+void RaspiDACNetwork::getPm8000enable()
+{
+    m_networkthread.sendCommand(m_host, m_port, "get pm8000enable");
+}
+
+void RaspiDACNetwork::setPm8000enable(bool ctl)
+{
+    m_pm8000enable = ctl;
+    if (m_pm8000enable)
+        m_networkthread.sendCommand(m_host, m_port, "set pm8000enable true");
+    else
+        m_networkthread.sendCommand(m_host, m_port, "set pm8000enable false");
 }
